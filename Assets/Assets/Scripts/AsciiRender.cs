@@ -10,6 +10,8 @@ public class AsciiRender : MonoBehaviour
 {
     public RenderTexture renderTexture;
     public TextMeshProUGUI renderText;
+    private int charWidth;
+    private int charHeight;
     private char[] asciiCharArray;
     private char[] greyscaleAscii = new char[] { '$', '@', 'B', '%', '8', '&', 'W', 'M', '#', '*', 'o', 'a', 'h', 'k', 'b', 'd', 'p', 'q', 'w', 'm', 'Z', 'O', '0', 'Q', 'L', 'C', 'J', 'U', 'Y', 'X', 'z', 'c', 'v', 'u', 'n', 'x', 'r', 'j', 'f', 't', '/', '\\', '|', '(', ')', '1', '{', '}', '[', ']', '?', '-', '_', '+', '~', '<', '>', 'i', '!', 'l', 'I', ';', ':', ',', '"', '^', '`', '\'', '.', ' ' };
 
@@ -76,7 +78,7 @@ public class AsciiRender : MonoBehaviour
 
     public char getGreyscaleChar(double hue)
     {
-        int charPos = Convert.ToInt32(Math.Ceiling(hue * 69));
-        return greyscaleAscii[69 - charPos];
+        int charPos = Convert.ToInt32(Math.Ceiling(hue * (greyscaleAscii.Length - 1)));
+        return greyscaleAscii[(greyscaleAscii.Length - 1) - charPos];
     }
 }
