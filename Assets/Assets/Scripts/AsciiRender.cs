@@ -18,44 +18,28 @@ public class AsciiRender : MonoBehaviour
 
     private void Start()
     {
-        charHeight = Screen.height / 6;
-        charWidth = Screen.width / 6;
+        RectTransform transform = renderText.GetComponent<RectTransform>();
+        transform.sizeDelta = new Vector2(Screen.width, Screen.height);
+
+        charHeight = (int)(Screen.height / 6);
+        charWidth = (int)(Screen.width / 6);
+
+        renderTexture.height = charHeight;
+        renderTexture.width = charWidth;
+
         arraySize = ((charWidth + 1) * charHeight) + 34;
         asciiCharArray = new char[arraySize];
-        asciiCharArray[0] = '<';
-        asciiCharArray[1] = 'm';
-        asciiCharArray[2] = 's';
-        asciiCharArray[3] = 'p';
-        asciiCharArray[4] = 'a';
-        asciiCharArray[5] = 'c';
-        asciiCharArray[6] = 'e';
-        asciiCharArray[7] = '=';
-        asciiCharArray[8] = '6';
-        asciiCharArray[9] = '>';
-        asciiCharArray[10] = '<';
-        asciiCharArray[11] = 'l';
-        asciiCharArray[12] = 'i';
-        asciiCharArray[13] = 'n';
-        asciiCharArray[14] = 'e';
-        asciiCharArray[15] = '-';
-        asciiCharArray[16] = 'h';
-        asciiCharArray[17] = 'e';
-        asciiCharArray[18] = 'i';
-        asciiCharArray[19] = 'g';
-        asciiCharArray[20] = 'h';
-        asciiCharArray[21] = 't';
-        asciiCharArray[22] = '=';
-        asciiCharArray[23] = '6';
-        asciiCharArray[24] = '>';
-        asciiCharArray[arraySize - 9] = '<';
-        asciiCharArray[arraySize - 8] = '/';
-        asciiCharArray[arraySize - 7] = 'm';
-        asciiCharArray[arraySize - 6] = 's';
-        asciiCharArray[arraySize - 5] = 'p';
-        asciiCharArray[arraySize - 4] = 'a';
-        asciiCharArray[arraySize - 3] = 'c';
-        asciiCharArray[arraySize - 2] = 'e';
-        asciiCharArray[arraySize - 1] = '>';
+
+        string mspace = "<mspace=6><line-height=6>";
+        for (int i = 0; i < 25; i++)
+        {
+            asciiCharArray[i] = mspace[i];
+        }
+        string slashMspace = "</mspace>";
+        for (int i = 1; i < 10; i++)
+        {
+            asciiCharArray[arraySize - 10 - i] = slashMspace[9 - i];
+        }
     }
 
     void Update()
