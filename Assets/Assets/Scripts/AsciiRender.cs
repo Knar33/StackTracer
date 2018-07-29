@@ -24,17 +24,8 @@ public class AsciiRender : MonoBehaviour
         transform.sizeDelta = new Vector2(Screen.width, Screen.height);
 
         mspace = "<mspace=6><line-height=6>";
-        for (int i = 0; i < 25; i++)
-        {
-            asciiCharArray[i] = mspace[i];
-        }
-
         slashMspace = "</mspace>";
-        for (int i = 1; i < 10; i++)
-        {
-            asciiCharArray[arraySize - 10 - i] = slashMspace[9 - i];
-        }
-
+        
         charHeight = (int)(Screen.height / 6);
         charWidth = (int)(Screen.width / 6);
 
@@ -43,6 +34,16 @@ public class AsciiRender : MonoBehaviour
 
         arraySize = ((charWidth + 1) * charHeight) + mspace.Length + slashMspace.Length;
         asciiCharArray = new char[arraySize];
+
+        for (int i = 0; i < 25; i++)
+        {
+            asciiCharArray[i] = mspace[i];
+        }
+
+        for (int i = 1; i < 10; i++)
+        {
+            asciiCharArray[arraySize - 10 - i] = slashMspace[9 - i];
+        }
     }
 
     void Update()
