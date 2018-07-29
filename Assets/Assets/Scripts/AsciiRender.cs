@@ -35,14 +35,14 @@ public class AsciiRender : MonoBehaviour
         arraySize = ((charWidth + 1) * charHeight) + mspace.Length + slashMspace.Length;
         asciiCharArray = new char[arraySize];
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < mspace.Length; i++)
         {
             asciiCharArray[i] = mspace[i];
         }
 
         for (int i = 1; i < 10; i++)
         {
-            asciiCharArray[arraySize - 10 - i] = slashMspace[9 - i];
+            asciiCharArray[arraySize - slashMspace.Length + 1 - i] = slashMspace[slashMspace.Length - i];
         }
     }
 
