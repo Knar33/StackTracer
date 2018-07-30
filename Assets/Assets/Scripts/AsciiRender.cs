@@ -13,8 +13,8 @@ public class AsciiRender : MonoBehaviour
     private int charWidth;
     private int charHeight;
     private int arraySize;
-    private string mspace;
-    private string slashMspace;
+    private string preAsciiText;
+    private string postAsciiText;
     private char[] asciiCharArray;
     private char[] greyscaleAscii = new char[] { '$', '@', 'B', '%', '8', '&', 'W', 'M', '#', '*', 'o', 'a', 'h', 'k', 'b', 'd', 'p', 'q', 'w', 'm', 'Z', 'O', '0', 'Q', 'L', 'C', 'J', 'U', 'Y', 'X', 'z', 'c', 'v', 'u', 'n', 'x', 'r', 'j', 'f', 't', '/', '\\', '|', '(', ')', '1', '{', '}', '[', ']', '?', '-', '_', '+', '~', '<', '>', 'i', '!', 'l', 'I', ';', ':', ',', '"', '^', '`', '\'', '.', ' ' };
 
@@ -23,8 +23,8 @@ public class AsciiRender : MonoBehaviour
         RectTransform transform = renderText.GetComponent<RectTransform>();
         transform.sizeDelta = new Vector2(Screen.width, Screen.height);
 
-        mspace = "<mspace=6><line-height=6>";
-        slashMspace = "</mspace>";
+        preAsciiText = "<mspace=6><line-height=6>";
+        postAsciiText = "</mspace>";
         
         charHeight = (int)(Screen.height / 6);
         charWidth = (int)(Screen.width / 6);
@@ -32,17 +32,17 @@ public class AsciiRender : MonoBehaviour
         renderTexture.height = charHeight;
         renderTexture.width = charWidth;
 
-        arraySize = ((charWidth + 1) * charHeight) + mspace.Length + slashMspace.Length;
+        arraySize = ((charWidth + 1) * charHeight) + preAsciiText.Length + postAsciiText.Length;
         asciiCharArray = new char[arraySize];
 
-        for (int i = 0; i < mspace.Length; i++)
+        for (int i = 0; i < preAsciiText.Length; i++)
         {
-            asciiCharArray[i] = mspace[i];
+            asciiCharArray[i] = preAsciiText[i];
         }
 
         for (int i = 1; i < 10; i++)
         {
-            asciiCharArray[arraySize - slashMspace.Length + 1 - i] = slashMspace[slashMspace.Length - i];
+            asciiCharArray[arraySize - postAsciiText.Length + 1 - i] = postAsciiText[postAsciiText.Length - i];
         }
     }
 
@@ -59,10 +59,10 @@ public class AsciiRender : MonoBehaviour
         {
             for (int x = 0; x < charWidth; x++)
             {
-                int charSpace = mspace.Length + (1 * y) + x + (charWidth * y);
+                int charSpace = preAsciiText.Length + (1 * y) + x + (charWidth * y);
                 asciiCharArray[charSpace] = getGreyscaleChar(Convert.ToDouble(renderGrid[x + (charWidth * (charHeight - 1 - y))].grayscale));
             }
-            asciiCharArray[mspace.Length + charWidth + ((charWidth + 1) * y)] = '\n';
+            asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
         }
         string output = new string(asciiCharArray);
         renderText.text = output;
