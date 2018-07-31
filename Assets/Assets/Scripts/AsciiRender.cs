@@ -18,6 +18,10 @@ public class AsciiRender : MonoBehaviour
     private char[] asciiCharArray;
     private char[] greyscaleAscii = new char[] { '$', '@', 'B', '%', '8', '&', 'W', 'M', '#', '*', 'o', 'a', 'h', 'k', 'b', 'd', 'p', 'q', 'w', 'm', 'Z', 'O', '0', 'Q', 'L', 'C', 'J', 'U', 'Y', 'X', 'z', 'c', 'v', 'u', 'n', 'x', 'r', 'j', 'f', 't', '/', '\\', '|', '(', ')', '1', '{', '}', '[', ']', '?', '-', '_', '+', '~', '<', '>', 'i', '!', 'l', 'I', ';', ':', ',', '"', '^', '`', '\'', '.', ' ' };
 
+    private int crosshairLocation;
+    private int crosshairLocationup;
+    private int crosshairLocationdown;
+
     private void Start()
     {
         RectTransform transform = renderText.GetComponent<RectTransform>();
@@ -44,6 +48,10 @@ public class AsciiRender : MonoBehaviour
         {
             asciiCharArray[arraySize - postAsciiText.Length + 1 - i] = postAsciiText[postAsciiText.Length - i];
         }
+
+        crosshairLocation = preAsciiText.Length + (int)(charHeight / 2) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2));
+        crosshairLocationup = preAsciiText.Length + (int)(charHeight / 2 - 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 - 1));
+        crosshairLocationdown = preAsciiText.Length + (int)(charHeight / 2 + 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 + 1));
     }
 
     void Update()
@@ -66,9 +74,6 @@ public class AsciiRender : MonoBehaviour
         }
 
         //Crosshair
-        int crosshairLocation = preAsciiText.Length + (int)(charHeight / 2) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2));
-        int crosshairLocationup = preAsciiText.Length + (int)(charHeight / 2 - 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 - 1));
-        int crosshairLocationdown = preAsciiText.Length + (int)(charHeight / 2 + 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 + 1));
         asciiCharArray[crosshairLocation] = '+';
         asciiCharArray[crosshairLocation - 1] = '+';
         asciiCharArray[crosshairLocation + 1] = '+';    
