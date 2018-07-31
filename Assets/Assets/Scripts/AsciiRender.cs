@@ -64,6 +64,17 @@ public class AsciiRender : MonoBehaviour
             }
             asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
         }
+
+        //Crosshair
+        int crosshairLocation = preAsciiText.Length + (int)(charHeight / 2) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2));
+        int crosshairLocationup = preAsciiText.Length + (int)(charHeight / 2 - 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 - 1));
+        int crosshairLocationdown = preAsciiText.Length + (int)(charHeight / 2 + 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 + 1));
+        asciiCharArray[crosshairLocation] = '+';
+        asciiCharArray[crosshairLocation - 1] = '+';
+        asciiCharArray[crosshairLocation + 1] = '+';    
+        asciiCharArray[crosshairLocationup] = '+';
+        asciiCharArray[crosshairLocationdown] = '+';
+
         string output = new string(asciiCharArray);
         renderText.text = output;
     }
