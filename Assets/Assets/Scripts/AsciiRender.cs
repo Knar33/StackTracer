@@ -59,7 +59,7 @@ public class AsciiRender : MonoBehaviour
         {
             for (int x = 0; x < charWidth; x++)
             {
-                int charSpace = preAsciiText.Length + (1 * y) + x + (charWidth * y);
+                int charSpace = preAsciiText.Length + y + x + (charWidth * y);
                 asciiCharArray[charSpace] = getGreyscaleChar(Convert.ToDouble(renderGrid[x + (charWidth * (charHeight - 1 - y))].grayscale));
             }
             asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
