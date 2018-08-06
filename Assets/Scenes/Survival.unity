@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderTexture: {fileID: 8400000, guid: cc20434ae5a03d64bb8e97c451f5f54e, type: 2}
   renderText: {fileID: 1245331872}
+  greyscaleAscii: 24004000420025003800260057004d0023002a006f00610068006b00620064007000710077006d005a004f00300051004c0043004a005500590058007a006300760075006e00780072006a00660074002f005c007c002800290031007b007d005b005d003f002d005f002b007e003c003e00690021006c0049003b003a002c0022005e00600027002e002000
 --- !u!1 &775297246
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,8 +553,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
