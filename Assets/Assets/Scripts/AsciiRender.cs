@@ -54,57 +54,57 @@ public class AsciiRender : MonoBehaviour
         crosshairLocationdown = preAsciiText.Length + (int)(charHeight / 2 + 1) + (int)(charWidth / 2) + (charWidth * (int)(charHeight / 2 + 1));
     }
 
-    //Character calibration method
-    void Update()
-    {
-        for (int y = 0; y < charHeight; y++)
-        {
-            for (int x = 0; x < charWidth; x++)
-            {
-                int charSpace = preAsciiText.Length + y + x + (charWidth * y);
-                decimal b = (x / (decimal)charWidth);
-                var a = (int)(b * greyscaleAscii.Length);
-                asciiCharArray[charSpace] = greyscaleAscii[a];
-            }
-            asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
-        }
-
-        string output = new string(asciiCharArray);
-        renderText.text = output;
-    }
-
+    ////Character calibration method
     //void Update()
     //{
-    //    Texture2D tex2d = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
-    //    RenderTexture.active = renderTexture;
-    //    tex2d.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
-    //    tex2d.Apply();
-
-    //    Color[] renderGrid = tex2d.GetPixels(0, 0, charWidth, charHeight);
-
     //    for (int y = 0; y < charHeight; y++)
     //    {
     //        for (int x = 0; x < charWidth; x++)
     //        {
     //            int charSpace = preAsciiText.Length + y + x + (charWidth * y);
-    //            asciiCharArray[charSpace] = getGreyscaleChar(Convert.ToDouble(renderGrid[x + (charWidth * (charHeight - 1 - y))].grayscale));
+    //            decimal b = (x / (decimal)charWidth);
+    //            var a = (int)(b * greyscaleAscii.Length);
+    //            asciiCharArray[charSpace] = greyscaleAscii[a];
     //        }
     //        asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
     //    }
-
-    //    //Crosshair
-    //    asciiCharArray[crosshairLocation] = '+';
-    //    asciiCharArray[crosshairLocation - 1] = '+';
-    //    asciiCharArray[crosshairLocation + 1] = '+';    
-    //    asciiCharArray[crosshairLocationup] = '+';
-    //    asciiCharArray[crosshairLocationdown] = '+';
 
     //    string output = new string(asciiCharArray);
     //    renderText.text = output;
     //}
 
-    //public char getGreyscaleChar(double hue)
-    //{
-    //    return greyscaleAscii[(greyscaleAscii.Length - 1) - Convert.ToInt32(Math.Ceiling(hue * (greyscaleAscii.Length - 1)))];
-    //}
+    void Update()
+    {
+        Texture2D tex2d = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
+        RenderTexture.active = renderTexture;
+        tex2d.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+        tex2d.Apply();
+
+        Color[] renderGrid = tex2d.GetPixels(0, 0, charWidth, charHeight);
+
+        for (int y = 0; y < charHeight; y++)
+        {
+            for (int x = 0; x < charWidth; x++)
+            {
+                int charSpace = preAsciiText.Length + y + x + (charWidth * y);
+                asciiCharArray[charSpace] = getGreyscaleChar(Convert.ToDouble(renderGrid[x + (charWidth * (charHeight - 1 - y))].grayscale));
+            }
+            asciiCharArray[preAsciiText.Length + charWidth + ((charWidth + 1) * y)] = '\n';
+        }
+
+        //Crosshair
+        asciiCharArray[crosshairLocation] = '+';
+        asciiCharArray[crosshairLocation - 1] = '+';
+        asciiCharArray[crosshairLocation + 1] = '+';
+        asciiCharArray[crosshairLocationup] = '+';
+        asciiCharArray[crosshairLocationdown] = '+';
+
+        string output = new string(asciiCharArray);
+        renderText.text = output;
+    }
+
+    public char getGreyscaleChar(double hue)
+    {
+        return greyscaleAscii[(greyscaleAscii.Length - 1) - Convert.ToInt32(Math.Ceiling(hue * (greyscaleAscii.Length - 1)))];
+    }
 }
