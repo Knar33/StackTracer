@@ -11,6 +11,7 @@ public class AsciiRender : MonoBehaviour
     public RenderTexture renderTexture;
     public TextMeshProUGUI renderText;
     public int monoSpaceWidth;
+    public int monoSpaceHeight;
     private int charWidth;
     private int charHeight;
     private int arraySize;
@@ -28,11 +29,11 @@ public class AsciiRender : MonoBehaviour
         RectTransform transform = renderText.GetComponent<RectTransform>();
         transform.sizeDelta = new Vector2(Screen.width, Screen.height);
 
-        preAsciiText = "<mspace=" + monoSpaceWidth + "><line-height=" + monoSpaceWidth + ">";
+        preAsciiText = "<mspace=" + monoSpaceWidth + "><line-height=" + monoSpaceHeight + ">";
         postAsciiText = "</mspace>";
         
-        charHeight = (int)(Screen.height / monoSpaceWidth);
         charWidth = (int)(Screen.width / monoSpaceWidth);
+        charHeight = (int)(Screen.height / monoSpaceHeight);
 
         renderTexture.height = charHeight;
         renderTexture.width = charWidth;
