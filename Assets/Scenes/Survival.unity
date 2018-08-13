@@ -261,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderTexture: {fileID: 8400000, guid: cc20434ae5a03d64bb8e97c451f5f54e, type: 2}
   renderText: {fileID: 1245331872}
+  monoSpaceWidth: 6
   greyscaleAscii: 24004000420025003800260057004d0023002a006f00610068006b00620064007000710077006d005a004f00300051004c0043004a005500590058007a006300760075006e00780072006a00660074002f005c007c002800290031007b007d005b005d003f002d005f002b007e003c003e00690021006c0049003b003a002c0022005e00600027002e002000
 --- !u!1 &294966863
 GameObject:
@@ -1390,7 +1391,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 
+  m_text: <mspace=10><line-height=10>asdfasdfas43543\nasasdfasdfasdfasdfasdfdfasdf</mspace>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
   m_sharedMaterial: {fileID: 2140474, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
@@ -1399,7 +1400,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281597696
   m_fontColor: {r: 0, g: 1, b: 0.2, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
@@ -1417,8 +1418,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 6
-  m_fontSizeBase: 6
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1458,13 +1459,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 348.6631, w: 0}
   m_textInfo:
     textComponent: {fileID: 1245331872}
-    characterCount: 0
+    characterCount: 44
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 2
+    pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
