@@ -261,7 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderTexture: {fileID: 8400000, guid: cc20434ae5a03d64bb8e97c451f5f54e, type: 2}
   renderText: {fileID: 1245331872}
-  monoSpaceWidth: 6
+  monoSpaceWidth: 10
+  monoSpaceHeight: 10
   greyscaleAscii: 24004000420025003800260057004d0023002a006f00610068006b00620064007000710077006d005a004f00300051004c0043004a005500590058007a006300760075006e00780072006a00660074002f005c007c002800290031007b007d005b005d003f002d005f002b007e003c003e00690021006c0049003b003a002c0022005e00600027002e002000
 --- !u!1 &294966863
 GameObject:
@@ -1418,8 +1419,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
