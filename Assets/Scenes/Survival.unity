@@ -261,8 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderTexture: {fileID: 8400000, guid: cc20434ae5a03d64bb8e97c451f5f54e, type: 2}
   renderText: {fileID: 1245331872}
-  monoSpaceWidth: 10
-  monoSpaceHeight: 10
+  monoSpaceWidth: 6
+  monoSpaceHeight: 6
   greyscaleAscii: 24004000420025003800260057004d0023002a006f00610068006b00620064007000710077006d005a004f00300051004c0043004a005500590058007a006300760075006e00780072006a00660074002f005c007c002800290031007b007d005b005d003f002d005f002b007e003c003e00690021006c0049003b003a002c0022005e00600027002e002000
 --- !u!1 &294966863
 GameObject:
@@ -1392,10 +1392,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: <mspace=10><line-height=10>asdfasdfas43543\nasasdfasdfasdfasdfasdfdfasdf</mspace>
+  m_text: <mspace=6><line-height=6>asdfasdfas43543\nasasdfasdfasdfasdfasdfdfasdf</mspace>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: f76ef802b8b940c46a31f9027f2b0158, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1419,8 +1419,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
